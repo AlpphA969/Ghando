@@ -1,3 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Ghando.PersistenceEF;
+using Ghando.Service;
+
 namespace Ghando.Endpoint.API;
 
 public class Program
@@ -8,6 +13,15 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
+
+        builder.Host.UseServiceProviderFactory(
+            new AutofacServiceProviderFactory());
+        builder.Host.ConfigureContainer<ContainerBuilder>(container =>
+        {
+            container.RegisterModule<ServiceModule>();
+            container.RegisterModule<PersistenceMoudle>();
+        });
+        
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
