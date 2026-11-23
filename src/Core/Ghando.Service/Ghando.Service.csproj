@@ -11,4 +11,8 @@
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="11.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Ghando.Entity\Ghando.Entity.csproj" />
+    </ItemGroup>
+
 </Project>
