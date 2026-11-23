@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Ghando.PersistenceEF;
 using Ghando.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ghando.Endpoint.API;
 
@@ -21,9 +22,11 @@ public class Program
             container.RegisterModule<ServiceModule>();
             container.RegisterModule<PersistenceMoudle>();
         });
+        builder.Services.AddDbContext<EFDataContext>(option =>
+            option.UseNpgsql(
+                builder.Configuration
+                    .GetConnectionString("DefaultConnection")));
         
-
-        // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
         var app = builder.Build();
