@@ -295,3 +295,5 @@ riderModule.iml
                   .config/
                   # Kilo
                   .kilo/
+
+*.DotSettings.user
