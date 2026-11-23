@@ -11,7 +11,7 @@ public class CategoryEntityMap :IEntityTypeConfiguration<Entity.Category>
 
         builder.HasKey(c => c.Id);
         
-        builder.Property(c => c.Title).IsRequired();
+        builder.Property(c => c.Title).IsRequired().HasMaxLength(100);;
 
         builder.Property(c => c.CreatedAt);
         
