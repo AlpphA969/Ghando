@@ -19,7 +19,7 @@ public class Program
         builder.Host.ConfigureContainer<ContainerBuilder>(container =>
         {
             container.RegisterModule<ServiceModule>();
-            container.RegisterModule<PersistenceMoudle>();
+            container.RegisterModule<PersistenceModule>();
         });
         
 
