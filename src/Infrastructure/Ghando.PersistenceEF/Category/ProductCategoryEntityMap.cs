@@ -17,6 +17,12 @@ public class ProductCategoryEntityMap : IEntityTypeConfiguration<ProductCategory
             .WithMany(p => p.ProductCategories)
             .HasForeignKey(c => c.CategoryId)
             .IsRequired();
-        
+
+        builder
+            .HasOne(c => c.Product)
+            .WithMany(p => p.ProductCategories)
+            .HasForeignKey(c => c.ProductId)
+            .IsRequired();
+
     }
 }
