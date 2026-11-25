@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Ghando.PersistenceEF;
 using Ghando.Service;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 namespace Ghando.Endpoint.API;
 
@@ -28,16 +29,21 @@ public class Program
                     .GetConnectionString("DefaultConnection")));
         
         builder.Services.AddOpenApi();
+        
+        builder.Services.AddControllers();
 
         var app = builder.Build();
-
-        // Configure the HTTP request pipeline.
+        app.UseStaticFiles();
+        
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
+            app.MapScalarApiReference();
         }
+        
 
         app.UseHttpsRedirection();
+        app.MapControllers();
 
         app.UseAuthorization();
         app.Run();
