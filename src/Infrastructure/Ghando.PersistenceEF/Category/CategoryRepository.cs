@@ -12,7 +12,8 @@ public class CategoryRepository  : ICategoryRepository
         _categories = dbContext.Set<Entity.Category>();
     }
 
-    public async Task<Guid> AddCategoryAsync(Entity.Category category , 
+    public async Task<Guid> AddAsync(
+        Entity.Category category,
         CancellationToken cancellationToken = default)
     {
         var result = await _categories.AddAsync(category,
