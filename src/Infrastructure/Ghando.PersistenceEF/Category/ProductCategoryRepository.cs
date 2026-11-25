@@ -8,7 +8,7 @@ public class ProductCategoryRepository : IProductCategoryRepository
 {
     private readonly DbSet<ProductCategory> _productCategories; 
     
-    public ProductCategoryRepository(DbContext context)
+    public ProductCategoryRepository(EFDataContext context)
     {
         _productCategories = context.Set<ProductCategory>();
     }

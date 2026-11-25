@@ -22,35 +22,17 @@ public class CategoryRepository  : ICategoryRepository
         return result.Entity.Id;
     }
 
-    public async Task<bool> CategoryExistAsync(string title,
-        CancellationToken cancellationToken = default)
-    {
-        var result = await _categories.Where(c => c.Title == title).
-            AnyAsync(cancellationToken);
-
-        return result;
-    }
-
-    public async Task<Entity.Category?> GetCategoryByIdAsync(Guid id, 
-        CancellationToken cancellationToken = default)
-    {
-        var result =  await _categories.FirstOrDefaultAsync(c => c.Id == id);
+    public async Task<int> CountByIdsAsync(
+        List<Guid> ids,
+        CancellationToken cancellationToken = default) {
         
+        var result =  await _categories.CountAsync(c =>  ids.Contains(c.Id),
+            cancellationToken);
         return result;
     }
+         
 
-    public Task<bool> CategoryExistExceptAsync(string title, 
-        Guid exceptCategoryId, CancellationToken cancellationToken = default)
-    {
-        var  result =  _categories.
-            Where(c => c.Title == title &&  c.Id  != exceptCategoryId).
-            AnyAsync(cancellationToken);
-        
-        return result;
-    }
 
-    public void DeleteCategory(Entity.Category category)
-    {
-        _categories.Remove(category); 
-    }
+
+
 }
