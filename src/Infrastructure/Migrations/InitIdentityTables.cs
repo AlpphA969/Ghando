@@ -1,8 +1,8 @@
 using FluentMigrator;
 
-namespace Migrations;
-[Migration(202611232159)]
-public class InitIdentityTables : Migration
+namespace Ghando.Migrations;
+[Migration(202611251810)]
+public class InitIdentityTables : FluentMigrator.Migration
 {
     public override void Up()
     {
@@ -81,4 +81,5 @@ public class InitIdentityTables : Migration
         Delete.Table("AspNetRoles");
         Delete.Table("AspNetUsers");
     }
+   
 }

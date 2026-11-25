@@ -12,11 +12,11 @@ public class ProductEntityMap : IEntityTypeConfiguration<Entity.Product>
         
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.Description);
+        builder.Property(x => x.Description).HasMaxLength(4000);
 
-        builder.Property(x => x.Name).IsRequired();
+        builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
 
-        builder.Property(x => x.ImageUrl);
+        builder.Property(x => x.ImageUrl).HasMaxLength(2048);
 
         builder.Property(x => x.CreatedAt);
         

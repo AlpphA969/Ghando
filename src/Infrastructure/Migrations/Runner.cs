@@ -1,11 +1,12 @@
-﻿using FluentMigrator.Runner;
+using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Migrations;
 
-class Runner
+public class Runner
 {
-    static void Main()
+    
+    static void Main(string[] args)
     {
         var connectionString =
             "Host=localhost;Port=5432;Database=ghando;Username=postgres;Password=P@ssw0rd23";
@@ -21,9 +22,7 @@ class Runner
             .BuildServiceProvider(false);
 
         using var scope = serviceProvider.CreateScope();
-        scope.ServiceProvider.GetRequiredService<IMigrationRunner>()
-            .MigrateUp();
+        scope.ServiceProvider.GetRequiredService<IMigrationRunner>().MigrateUp();
     }
+    
 }
-    
-    

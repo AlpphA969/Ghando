@@ -7,17 +7,23 @@ public class CommentEntityMap :IEntityTypeConfiguration<Entity.Comment>
 {
     public void Configure(EntityTypeBuilder<Entity.Comment> builder)
     {
-        builder.ToTable("Comment");
+        builder.ToTable("Comments");
         
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.FirstName).IsRequired();
+        builder
+            .HasOne(c => c.Product)
+            .WithMany(c => c.Comments)
+            .HasForeignKey(c => c.ProductId)
+            .IsRequired();
+
+        builder.Property(x => x.FirstName).HasMaxLength(100).IsRequired();
         
-        builder.Property(x => x.LastName).IsRequired();
+        builder.Property(x => x.LastName).HasMaxLength(100).IsRequired();
 
         builder.Property(x => x.Status);
         
-        builder.Property(x => x.Text).IsRequired();
+        builder.Property(x => x.Text).HasMaxLength(2000).IsRequired();
         
         builder.Property(x => x.CreatedAt);
         

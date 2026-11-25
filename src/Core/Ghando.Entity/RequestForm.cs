@@ -8,7 +8,7 @@ public class RequestForm : Abstract.Entity
     
     public string PhoneNumber { set; get; } = default!;
 
-    public RequestStatus Status { set; get; } = default!;
+    public RequestStatus Status { set; get; }
 
     public string Text { set; get; } = default!;
 
