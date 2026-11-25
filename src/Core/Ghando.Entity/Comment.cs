@@ -7,6 +7,8 @@ public class Comment : Abstract.Entity
     public string FirstName { get; set; } = default!;
 
     public string LastName { get; set; } = default!;
+    
+    public Guid ProductId { get; set; }
 
 
     public Status Status { get; set; } = default!;

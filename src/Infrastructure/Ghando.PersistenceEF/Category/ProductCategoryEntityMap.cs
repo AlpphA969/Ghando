@@ -23,6 +23,8 @@ public class ProductCategoryEntityMap : IEntityTypeConfiguration<ProductCategory
             .WithMany(p => p.ProductCategories)
             .HasForeignKey(c => c.ProductId)
             .IsRequired();
+        
+        builder.HasIndex(c=>new {c.ProductId , c.CategoryId }).IsUnique();
 
     }
 }
