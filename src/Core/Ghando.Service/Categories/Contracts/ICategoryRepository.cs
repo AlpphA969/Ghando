@@ -5,7 +5,7 @@ namespace Ghando.Service.Categories.Contracts;
 public interface ICategoryRepository
 {
 
-    Task<Guid> AddCategoryAsync(Category category,
+    Task<Guid> AddAsync(Category category,
         CancellationToken cancellationToken = default);
 
     Task<bool> CategoryExistAsync(string title,
