@@ -36,11 +36,11 @@ public class ProductService : IProductService
         
         var categoryIds =   dto.CategoryIds.Distinct().ToList();
 
-        var existing = await _categories.CountByIdsAsync(
+        var categoriesCount = await _categories.CountByIdsAsync(
             categoryIds, 
             cancellationToken);
         
-        if (existing != categoryIds.Count)
+        if (categoriesCount != categoryIds.Count)
         {
             return ProductExceptions.CategoryNotFound;
         }

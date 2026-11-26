@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A97CC92E-0BC6-446D-A0DF-88B8C0E0D3DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{46D51021-D6BC-4FE2-BEB8-F765C3729510}"
+	ProjectSection(SolutionItems) = preProject
+		src\Infrastructure\Migrations\InitGhandoTables.cs = src\Infrastructure\Migrations\InitGhandoTables.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{83275C89-EA30-4430-B138-B207938483C2}"
 EndProject
