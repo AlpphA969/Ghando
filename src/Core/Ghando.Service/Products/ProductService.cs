@@ -1,6 +1,7 @@
 using Ghando.Entity;
 using Ghando.Service.Categories.Contracts;
 using Ghando.Service.Contracts;
+using Ghando.Service.Contracts.Dto;
 using Ghando.Service.FileService.Contracts;
 using Ghando.Service.FileService.Contracts.Exceptions;
 using Ghando.Service.Products.Contracts;
@@ -88,4 +89,14 @@ public class ProductService : IProductService
         return id;
     }
 
+    public async Task<Result<PagedListResult<GetProductsDto>>> GetProducts(
+        PaginationDto pagination,
+        CancellationToken cancellationToken = default)
+    {
+        var products = await _repository.GetProducts(
+            pagination, 
+            cancellationToken);
+
+        return products;
+    }
 }
