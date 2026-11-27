@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Http;
+using IFormFile = Microsoft.AspNetCore.Http.IFormFile;
 
-namespace Ghando.Service.Products.Dto;
+namespace Ghando.Service.Products.Contracts.Dto;
 
 public class AddProductDto
 {
@@ -11,5 +13,9 @@ public class AddProductDto
     public string? Description { get; set; }
     
     public List<Guid> CategoryIds { get; set; } = [];
+    
+    public IFormFile? File { get; set; } 
+    
+    
 
 }

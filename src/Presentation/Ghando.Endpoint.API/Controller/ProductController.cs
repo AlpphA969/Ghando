@@ -1,6 +1,6 @@
 using Ghando.Service.Contracts;
 using Ghando.Service.Products.Contracts;
-using Ghando.Service.Products.Dto;
+using Ghando.Service.Products.Contracts.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ghando.Endpoint.API.Controller;

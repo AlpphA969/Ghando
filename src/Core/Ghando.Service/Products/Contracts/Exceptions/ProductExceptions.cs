@@ -8,4 +8,8 @@ public static class ProductExceptions
         "CategoryNotFound",
         ErrorType.NotFound,
         "یک یا چند دسته‌بندی انتخاب‌شده وجود ندارد.");
+
+    public static Error CategoryRequired() => new Error("CategoryRequired",
+        ErrorType.InvalidInput,
+        "برای ایجاد محصول، انتخاب حداقل یک دسته‌بندی الزامی است");
 }

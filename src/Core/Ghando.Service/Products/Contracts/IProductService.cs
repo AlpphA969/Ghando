@@ -1,5 +1,5 @@
 using Ghando.Service.Contracts;
-using Ghando.Service.Products.Dto;
+using Ghando.Service.Products.Contracts.Dto;
 
 namespace Ghando.Service.Products.Contracts;
 
