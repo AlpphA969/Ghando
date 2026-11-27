@@ -1,4 +1,5 @@
 using Ghando.Service.Contracts;
+using Ghando.Service.Contracts.Dto;
 using Ghando.Service.Products.Contracts;
 using Ghando.Service.Products.Contracts.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,17 @@ public class ProductController : ControllerBase
             dto , 
             cancellationToken);
         
+        return result;
+    }
+
+    [HttpGet]
+    public async Task<Result<PagedListResult<GetProductsDto>>> GetProductsAsync(
+        [FromQuery]  PaginationDto pagination,
+        CancellationToken cancellationToken = default)
+    {
+        
+        var result = await _productService.GetProducts(pagination, cancellationToken);
+
         return result;
     }
 }

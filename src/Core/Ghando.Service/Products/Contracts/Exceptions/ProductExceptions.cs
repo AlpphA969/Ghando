@@ -12,4 +12,6 @@ public static class ProductExceptions
     public static Error CategoryRequired() => new Error("CategoryRequired",
         ErrorType.InvalidInput,
         "برای ایجاد محصول، انتخاب حداقل یک دسته‌بندی الزامی است");
+
+
 }
