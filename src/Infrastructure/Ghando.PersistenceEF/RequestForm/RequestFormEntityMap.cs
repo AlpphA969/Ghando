@@ -1,12 +1,11 @@
-using Ghando.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Ghando.PersistenceEF.RequestFrom;
+namespace Ghando.PersistenceEF.RequestForm;
 
-public class RequestFromEntityMap : IEntityTypeConfiguration<RequestForm>
+public class RequestFormEntityMap : IEntityTypeConfiguration<Entity.RequestForm>
 {
-    public void Configure(EntityTypeBuilder<RequestForm> builder)
+    public void Configure(EntityTypeBuilder<Entity.RequestForm> builder)
     {
         builder.ToTable("RequestForms");
         
@@ -18,7 +17,7 @@ public class RequestFromEntityMap : IEntityTypeConfiguration<RequestForm>
 
         builder.Property(x => x.Text).HasMaxLength(4000).IsRequired();
         
-        builder.Property(x => x.PhoneNumber).HasMaxLength(20).IsRequired();
+        builder.Property(x => x.PhoneNumber).HasMaxLength(11).IsRequired();
 
         builder.Property(x => x.Subject).HasMaxLength(200).IsRequired();
 
