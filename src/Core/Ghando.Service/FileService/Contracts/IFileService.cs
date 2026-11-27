@@ -6,5 +6,5 @@ namespace Ghando.Service.FileService.Contracts;
 
 public interface IFileService
 {
-    Task<Result<string>> UploadFile(IFormFile file);
+    Task<Result<string>> UploadFile(IFormFile? file);
 }

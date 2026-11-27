@@ -9,7 +9,7 @@ namespace Ghando.Service.FileService;
 
 public class FileService : IFileService
 {
-    public async Task<Result<string>> UploadFile(IFormFile file)
+    public async Task<Result<string>> UploadFile(IFormFile? file)
     {
         string fileExtension = Path.GetExtension(file.FileName);
 

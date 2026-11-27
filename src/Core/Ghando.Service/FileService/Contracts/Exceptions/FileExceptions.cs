@@ -12,6 +12,8 @@ public static class FileExceptions
     public static Error FileSizeExceeded() => new Error("File size exceeded",
         ErrorType.InvalidInput, "اندازه ی فایل بیشتر از حد مجاز");
 
+    public static Error FileUploadFailed() => new Error("File upload failed",
+        ErrorType.InvalidInput, "بارگذاری فایل با خطا مواجه شد");
 
 
 
